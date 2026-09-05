@@ -594,5 +594,22 @@ async function loadAll(){
 document.addEventListener('DOMContentLoaded', loadAll);
 </script>
 
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+    // Pokud přijdeme z pozvánky/obnovy hesla, po potvrzení přesměruj do administrace
+    window.netlifyIdentity.on("signup", () => {
+      document.location.href = "/admin/";
+    });
+  }
+</script>
+
 </body>
 </html>
