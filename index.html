@@ -12,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-<style>
   :root{
     --cream:#fffcf5;
     --cream-panel:#faf2e2;
@@ -206,7 +205,11 @@
     display:flex; align-items:center; justify-content:center;
     transition:background .15s ease, color .15s ease;
   }
-  .gallery-nav button:hover{background:var(--ruda); color:var(--cream);}
+  .gallery-nav button{transition:background .15s ease, color .15s ease;}
+  @media (hover: hover){
+    .gallery-nav button:hover{background:var(--ruda); color:var(--cream);}
+  }
+  .gallery-nav button:active{background:var(--ruda); color:var(--cream);}
 
   .gallery-track{
     display:flex;
@@ -415,8 +418,6 @@
     background:var(--cream);
   }
 </style>
-
-</style>
 </head>
 <body>
 
@@ -456,8 +457,8 @@
     <div class="gallery-head">
       <div class="label">Co se u nás vaří</div>
       <div class="gallery-nav">
-        <button type="button" aria-label="Předchozí" onclick="document.getElementById('galTrack').scrollBy({left:-320,behavior:'smooth'})">‹</button>
-        <button type="button" aria-label="Další" onclick="document.getElementById('galTrack').scrollBy({left:320,behavior:'smooth'})">›</button>
+        <button type="button" aria-label="Předchozí" onclick="scrollGallery(-1)">‹</button>
+        <button type="button" aria-label="Další" onclick="scrollGallery(1)">›</button>
       </div>
     </div>
     <div class="gallery-track" id="galTrack">
@@ -532,6 +533,24 @@
 </footer>
 
 <script>
+function scrollGallery(direction){
+  const track = document.getElementById('galTrack');
+  if (!track) return;
+  const slides = Array.from(track.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
+  // Zjisti, která fotka je teď nejblíž levému okraji (aktuálně zobrazená).
+  let currentIndex = 0;
+  let smallestDiff = Infinity;
+  slides.forEach((slide, i) => {
+    const diff = Math.abs(slide.offsetLeft - track.scrollLeft);
+    if (diff < smallestDiff) { smallestDiff = diff; currentIndex = i; }
+  });
+
+  const targetIndex = Math.max(0, Math.min(slides.length - 1, currentIndex + direction));
+  track.scrollTo({ left: slides[targetIndex].offsetLeft, behavior: 'smooth' });
+}
+
 function escHTML(s){
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
