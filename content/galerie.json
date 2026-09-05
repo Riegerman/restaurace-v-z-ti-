@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "nazev": "Pečené koleno", "popis": "Nejoblíbenější", "obrazek": "/images/koleno.jpg" },
+    { "nazev": "Klobásy s hranolky", "popis": "K pivu", "obrazek": "/images/hranolky.jpg" },
+    { "nazev": "Gyros talíř", "popis": "Pro velký hlad", "obrazek": "/images/gyros.jpg" }
+  ]
+}

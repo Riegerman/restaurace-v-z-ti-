@@ -1,0 +1,19 @@
+{
+  "items": [
+    { "skupina": "Předkrmy a polévky", "nazev": "Gulášová polévka", "popis": "s chlebem, 0,33 l", "cena": "69 Kč", "obrazek": "" },
+    { "skupina": "Předkrmy a polévky", "nazev": "Topinky s česnekem", "popis": "4 ks", "cena": "79 Kč", "obrazek": "" },
+    { "skupina": "Předkrmy a polévky", "nazev": "Utopenci", "popis": "2 ks, s cibulí a chlebem", "cena": "89 Kč", "obrazek": "" },
+    { "skupina": "Předkrmy a polévky", "nazev": "Nakládaný hermelín", "popis": "s pečivem", "cena": "99 Kč", "obrazek": "" },
+    { "skupina": "Hlavní jídla", "nazev": "Pečené vepřové koleno", "popis": "s křenem, hořčicí a chlebem", "cena": "289 Kč", "obrazek": "/images/koleno.jpg" },
+    { "skupina": "Hlavní jídla", "nazev": "Klobásy s hranolky", "popis": "2 ks, kečup, hořčice", "cena": "169 Kč", "obrazek": "/images/hranolky.jpg" },
+    { "skupina": "Hlavní jídla", "nazev": "Gyros talíř", "popis": "vepřové maso, placka, zelenina", "cena": "239 Kč", "obrazek": "/images/gyros.jpg" },
+    { "skupina": "Hlavní jídla", "nazev": "Smažený sýr", "popis": "s bramborem a tatarkou", "cena": "179 Kč", "obrazek": "" },
+    { "skupina": "Hlavní jídla", "nazev": "Svíčková na smetaně", "popis": "s houskovým knedlíkem", "cena": "219 Kč", "obrazek": "" },
+    { "skupina": "Přílohy", "nazev": "Hranolky", "popis": "", "cena": "59 Kč", "obrazek": "" },
+    { "skupina": "Přílohy", "nazev": "Bramborák", "popis": "1 ks", "cena": "55 Kč", "obrazek": "" },
+    { "skupina": "Přílohy", "nazev": "Domácí chléb", "popis": "", "cena": "25 Kč", "obrazek": "" },
+    { "skupina": "Přílohy", "nazev": "Okurkový salát", "popis": "", "cena": "45 Kč", "obrazek": "" },
+    { "skupina": "Sladké tečky", "nazev": "Palačinky s marmeládou", "popis": "2 ks", "cena": "89 Kč", "obrazek": "" },
+    { "skupina": "Sladké tečky", "nazev": "Domácí jablečný štrúdl", "popis": "se šlehačkou", "cena": "79 Kč", "obrazek": "" }
+  ]
+}

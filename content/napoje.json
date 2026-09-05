@@ -1,0 +1,17 @@
+{
+  "items": [
+    { "skupina": "Točené pivo", "nazev": "Ležák 11°", "popis": "0,5 l", "cena": "55 Kč", "obrazek": "" },
+    { "skupina": "Točené pivo", "nazev": "Ležák 12°", "popis": "0,5 l", "cena": "59 Kč", "obrazek": "" },
+    { "skupina": "Točené pivo", "nazev": "Nealkoholické pivo", "popis": "0,5 l", "cena": "49 Kč", "obrazek": "" },
+    { "skupina": "Točené pivo", "nazev": "Radler", "popis": "0,5 l", "cena": "55 Kč", "obrazek": "" },
+    { "skupina": "Nealko", "nazev": "Kofola", "popis": "0,4 l", "cena": "45 Kč", "obrazek": "" },
+    { "skupina": "Nealko", "nazev": "Minerální voda", "popis": "0,33 l", "cena": "35 Kč", "obrazek": "" },
+    { "skupina": "Nealko", "nazev": "Džus", "popis": "jablko, pomeranč, 0,2 l", "cena": "39 Kč", "obrazek": "" },
+    { "skupina": "Nealko", "nazev": "Domácí limonáda", "popis": "0,3 l", "cena": "49 Kč", "obrazek": "" },
+    { "skupina": "Víno", "nazev": "Bílé, červené, rosé", "popis": "0,2 l", "cena": "59 Kč", "obrazek": "" },
+    { "skupina": "Víno", "nazev": "Svařené víno", "popis": "sezónně, 0,2 l", "cena": "65 Kč", "obrazek": "" },
+    { "skupina": "Destiláty", "nazev": "Slivovice", "popis": "0,04 l", "cena": "55 Kč", "obrazek": "" },
+    { "skupina": "Destiláty", "nazev": "Becherovka", "popis": "0,04 l", "cena": "49 Kč", "obrazek": "" },
+    { "skupina": "Destiláty", "nazev": "Rum", "popis": "0,04 l", "cena": "49 Kč", "obrazek": "" }
+  ]
+}

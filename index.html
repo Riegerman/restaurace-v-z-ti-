@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="theme-color" content="#fffcf5">
+<title>V Zátiší — Restaurace Velké Losiny</title>
+<meta name="description" content="V Zátiší — rodinná restaurace ve Velkých Losinách. Pečené vepřové koleno, domácí klobásy a poctivá horská kuchyně.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237a211e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='30' fill='%23fbf4e7' text-anchor='middle'%3EVZ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+<style>
+  :root{
+    --cream:#fffcf5;
+    --cream-panel:#faf2e2;
+    --cream-panel-2:#f6ecd6;
+    --ruda:#7a211e;
+    --ruda-2:#9c2b22;
+    --ruda-dark:#551512;
+    --ink:#4a2420;
+    --brass:#a97a24;
+    --green:#57683c;
+    --line:rgba(122,33,30,0.20);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{
+    scroll-behavior:smooth;
+    background:var(--cream);
+    color-scheme:light;
+  }
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Lora', serif;
+    font-weight:600;
+    color:var(--ruda);
+    line-height:1.1;
+  }
+  a{color:inherit; text-decoration:none;}
+  img{display:block; max-width:100%; height:auto;}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 20px;}
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,244,231,0.96);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1120px; margin:0 auto; padding:14px 20px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:19px;
+    color:var(--ruda);
+    letter-spacing:0.01em;
+  }
+  .brand em{font-style:italic; color:var(--brass);}
+  .nav-links{display:flex; align-items:center; gap:20px; font-size:15px;}
+  .nav-links a{color:var(--ink); opacity:0.8; transition:opacity .2s;}
+  .nav-links a:hover{opacity:1; color:var(--ruda);}
+  .nav-links a:not(.nav-call){display:none;}
+  .nav-call{
+    border:1px solid var(--ruda);
+    color:var(--ruda) !important;
+    padding:8px 14px;
+    border-radius:2px;
+    font-size:13px;
+    font-weight:600;
+    opacity:1 !important;
+    white-space:nowrap;
+  }
+  @media (min-width:900px){
+    .nav-links a:not(.nav-call){display:inline;}
+    .nav-call{font-size:14px; padding:7px 16px;}
+  }
+
+  /* ---------- HERO (text only, no big photo) ---------- */
+  .hero{
+    padding:0 0 12px;
+    background:var(--cream);
+  }
+  .hero-photo{
+    width:100%;
+    aspect-ratio:16/10;
+    overflow:hidden;
+  }
+  .hero-photo img{
+    width:100%; height:100%; object-fit:cover;
+  }
+  .hero-text{
+    padding-top:32px;
+  }
+  .hero .kicker{
+    color:var(--brass);
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:16px;
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-size:clamp(30px, 7vw, 50px);
+    max-width:14ch;
+  }
+  .hero p.lede{
+    margin-top:16px;
+    max-width:48ch;
+    color:var(--ink);
+    opacity:0.85;
+    font-size:17px;
+  }
+  .hero-cta{
+    margin-top:26px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .btn{
+    display:inline-block;
+    text-align:center;
+    padding:15px 24px;
+    font-family:'Karla',sans-serif;
+    font-weight:700;
+    font-size:15px;
+    border-radius:2px;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{
+    background:var(--ruda);
+    color:var(--cream);
+    border:1px solid var(--ruda);
+  }
+  .btn-primary:hover{background:var(--ruda-dark);}
+  .btn-outline{
+    border:1px solid var(--ruda);
+    color:var(--ruda);
+    background:transparent;
+  }
+  .btn-outline:hover{background:var(--ruda); color:var(--cream);}
+
+  .hero-status{
+    margin-top:24px;
+    font-size:13px;
+    color:var(--ink);
+    opacity:0.75;
+    display:flex; align-items:center; gap:8px;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--ruda-2); display:inline-block; flex:none;}
+  .dot.open{background:var(--green);}
+
+  @media (min-width:640px){
+    .hero-cta{flex-direction:row; flex-wrap:wrap;}
+  }
+  @media (min-width:860px){
+    .hero{padding:0 0 20px;}
+    .hero .wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:56px;
+      align-items:center;
+    }
+    .hero-photo{aspect-ratio:auto; height:520px; border-radius:2px; order:2;}
+    .hero-text{padding-top:0; order:1;}
+  }
+
+  /* ---------- SLIDING GALLERY ---------- */
+  .gallery{
+    padding:28px 0 8px;
+    background:var(--cream);
+  }
+  .gallery-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .gallery-head .label{
+    font-family:'Lora', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:15px;
+  }
+  .gallery-nav{display:flex; gap:8px;}
+  .gallery-nav button{
+    width:38px; height:38px;
+    border-radius:50%;
+    border:1px solid var(--ruda);
+    background:var(--cream);
+    color:var(--ruda);
+    font-size:16px;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:background .15s ease, color .15s ease;
+  }
+  .gallery-nav button:hover{background:var(--ruda); color:var(--cream);}
+
+  .gallery-track{
+    display:flex;
+    gap:16px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scroll-behavior:smooth;
+    padding:4px 0 20px;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .gallery-track::-webkit-scrollbar{display:none;}
+  .slide{
+    flex:0 0 78%;
+    scroll-snap-align:start;
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--cream-panel);
+    border:1px solid var(--line);
+  }
+  .slide img{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit:cover;
+  }
+  .slide-caption{
+    padding:14px 16px 16px;
+  }
+  .slide-caption .tag{
+    font-family:'Lora', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:13px;
+    display:block;
+    margin-bottom:4px;
+  }
+  .slide-caption h3{font-size:19px; color:var(--ruda);}
+  @media (min-width:640px){
+    .slide{flex-basis:46%;}
+  }
+  @media (min-width:960px){
+    .slide{flex-basis:31%;}
+    .slide img{aspect-ratio:5/4;}
+  }
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro{padding:48px 0 8px; text-align:left; background:var(--cream);}
+  .intro .wrap{display:flex; flex-direction:column; gap:14px;}
+  .intro .label{
+    font-family:'Lora', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:17px;
+  }
+  .intro p{
+    font-size:18px;
+    color:var(--ink);
+    max-width:58ch;
+  }
+  @media (min-width:720px){
+    .intro{padding:72px 0 40px;}
+    .intro .wrap{display:grid; grid-template-columns:0.7fr 1.3fr; gap:48px; align-items:start;}
+    .intro .label{font-size:19px;}
+    .intro p{font-size:20px;}
+  }
+
+  /* ---------- PRINTED MENU (jídelní / nápojový lístek) ---------- */
+  .menu-section{
+    padding:56px 0;
+    background:var(--cream-panel);
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .menu-section + .menu-section{
+    border-top:none;
+    background:var(--cream-panel-2);
+  }
+  .menu-head{margin-bottom:8px;}
+  .menu-head .label{
+    font-family:'Lora', serif;
+    font-style:italic;
+    color:var(--brass);
+    font-size:16px;
+  }
+  .menu-head h2{font-size:32px; margin-top:6px;}
+  .menu-note{
+    font-size:14px;
+    color:var(--ink);
+    opacity:0.65;
+    margin-top:10px;
+    max-width:52ch;
+  }
+  .menu-groups{
+    margin-top:36px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+  .menu-group h3{
+    font-size:19px;
+    color:var(--ruda-2);
+    font-style:italic;
+    font-weight:500;
+    margin-bottom:16px;
+    padding-bottom:8px;
+    border-bottom:1px solid var(--line);
+  }
+  .menu-item{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    padding:9px 0;
+    font-size:15.5px;
+  }
+  .menu-item .thumb{
+    width:42px; height:42px;
+    border-radius:4px;
+    object-fit:cover;
+    flex:none;
+    align-self:center;
+    border:1px solid var(--line);
+  }
+  .menu-item .name{color:var(--ink); font-weight:600;}
+  .menu-item .leader{
+    flex:1;
+    border-bottom:1px dotted rgba(74,36,32,0.35);
+    margin-bottom:5px;
+  }
+  .menu-item .price{color:var(--ruda); font-weight:700; white-space:nowrap;}
+  .menu-item .desc{
+    display:block;
+    font-size:13.5px;
+    color:var(--ink);
+    opacity:0.65;
+    font-weight:400;
+    margin-top:2px;
+  }
+  @media (min-width:720px){
+    .menu-section{padding:88px 0;}
+    .menu-head h2{font-size:40px;}
+    .menu-groups{grid-template-columns:1fr 1fr; gap:48px 64px;}
+  }
+
+  /* ---------- INFO ---------- */
+  .info{
+    padding:56px 0;
+    background:var(--cream);
+  }
+  .info .wrap{
+    display:flex;
+    flex-direction:column;
+    gap:40px;
+  }
+  .info h2{font-size:30px; margin-bottom:18px;}
+  .info .stars{color:var(--brass); font-size:18px; letter-spacing:2px; margin-bottom:6px;}
+  .info .rating-note{color:var(--ink); opacity:0.7; font-size:14px; margin-bottom:28px;}
+
+  .plank-list{list-style:none;}
+  .plank-list li{
+    display:flex;
+    gap:16px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    font-size:15px;
+  }
+  .plank-list li:last-child{border-bottom:1px solid var(--line);}
+  .plank-list .k{
+    width:96px; flex:none;
+    color:var(--brass);
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:14px;
+  }
+  .plank-list a{border-bottom:1px solid rgba(74,36,32,0.35);}
+  .plank-list a:hover{color:var(--ruda);}
+
+  .map-card{
+    border:1px solid var(--line);
+    padding:26px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    background:var(--cream-panel);
+  }
+  .map-card h3{color:var(--ruda); font-size:22px; margin-bottom:14px;}
+  .map-card p{color:var(--ink); opacity:0.8; font-size:14px; margin-bottom:24px;}
+  .map-card .btn-primary{align-self:flex-start; width:100%; text-align:center;}
+
+  @media (min-width:760px){
+    .info{padding:88px 0;}
+    .info .wrap{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+    .info h2{font-size:38px;}
+    .info .stars{font-size:20px;}
+    .map-card{padding:32px;}
+    .map-card .btn-primary{width:auto;}
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:32px 20px;
+    text-align:center;
+    font-size:12px;
+    color:var(--ink);
+    opacity:0.6;
+    border-top:1px solid var(--line);
+    background:var(--cream);
+  }
+</style>
+
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">V <em>Zátiší</em></div>
+    <nav class="nav-links">
+      <a href="#kuchyne">Kuchyně</a>
+      <a href="#jidelni-listek">Jídelní lístek</a>
+      <a href="#napojovy-listek">Nápojový lístek</a>
+      <a href="#info">Kde nás najdete</a>
+      <a class="nav-call" href="tel:+420731614935">731 614 935</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-photo">
+    <img id="heroImg" src="/images/uvodni-foto.jpg" alt="Výhled na Jeseníky z hor u Velkých Losin">
+  </div>
+  <div class="wrap">
+    <div class="hero-text">
+      <div class="kicker">Restaurace v srdci Jeseníků</div>
+      <h1>Pořádné jídlo, jaké čekáte od horské hospody.</h1>
+      <p class="lede">Pečené koleno, čerstvé hranolky a domácí klobásy — vařené ve Velkých Losinách tak, jak se má.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=V+Z%C3%A1ti%C5%A1%C3%AD+Osvobozen%C3%AD+57+788+15+Velk%C3%A9+Losiny" target="_blank" rel="noopener">Najít na mapě</a>
+        <a class="btn btn-outline" href="tel:+420731614935">Zavolat a objednat</a>
+      </div>
+      <div class="hero-status"><span class="dot"></span> Dnes zavřeno · otevíráme od 15:00</div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="kuchyne">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div class="label">Co se u nás vaří</div>
+      <div class="gallery-nav">
+        <button type="button" aria-label="Předchozí" onclick="document.getElementById('galTrack').scrollBy({left:-320,behavior:'smooth'})">‹</button>
+        <button type="button" aria-label="Další" onclick="document.getElementById('galTrack').scrollBy({left:320,behavior:'smooth'})">›</button>
+      </div>
+    </div>
+    <div class="gallery-track" id="galTrack">
+      <div class="slide">
+        <img src="/images/koleno.jpg" alt="Pečené vepřové koleno s cibulí a okurkami">
+        <div class="slide-caption"><span class="tag">Nejoblíbenější</span><h3>Pečené koleno</h3></div>
+      </div>
+      <div class="slide">
+        <img src="/images/hranolky.jpg" alt="Domácí klobásy s hranolky, kečupem a hořčicí">
+        <div class="slide-caption"><span class="tag">K pivu</span><h3>Klobásy s hranolky</h3></div>
+      </div>
+      <div class="slide">
+        <img src="/images/gyros.jpg" alt="Gyros talíř se zelím, rajčaty, okurkou a bramborovým chlebem">
+        <div class="slide-caption"><span class="tag">Pro velký hlad</span><h3>Gyros talíř</h3></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="intro">
+  <div class="wrap">
+    <div class="label">O podniku</div>
+    <p>V Zátiší je malá rodinná restaurace v Velkých Losinách — místo, kam se chodí na poctivé koleno, studené pivo a talíř plný jídla, po kterém se nehladoví.</p>
+  </div>
+</section>
+
+<section class="menu-section" id="jidelni-listek">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="label">Nabídka kuchyně</div>
+      <h2>Jídelní lístek</h2>
+    </div>
+    <div class="menu-groups" id="menu-jidlo"></div>
+  </div>
+</section>
+
+<section class="menu-section" id="napojovy-listek">
+  <div class="wrap">
+    <div class="menu-head">
+      <div class="label">Co se pije</div>
+      <h2>Nápojový lístek</h2>
+    </div>
+    <div class="menu-groups" id="menu-napoje"></div>
+  </div>
+</section>
+
+<section class="info" id="info">
+  <div class="wrap">
+    <div>
+      <h2>Kde nás najdete</h2>
+      <div class="stars">★★★★★</div>
+      <div class="rating-note">5,0 na Google mapách (3 recenze)</div>
+      <ul class="plank-list">
+        <li><span class="k">Adresa</span><span>Osvobození 57<br>788 15 Velké Losiny</span></li>
+        <li><span class="k">Telefon</span><span><a href="tel:+420731614935">731 614 935</a></span></li>
+        <li><span class="k">Otevřeno</span><span>Denně od 15:00</span></li>
+        <li><span class="k">Cena jídel</span><span>200–300 Kč</span></li>
+      </ul>
+    </div>
+    <div class="map-card">
+      <div>
+        <h3>Kde nás najdete</h3>
+        <p>Kompletní a aktuální informace vždy najdete na našem profilu na Google mapách.</p>
+      </div>
+      <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=V+Z%C3%A1ti%C5%A1%C3%AD+Osvobozen%C3%AD+57+788+15+Velk%C3%A9+Losiny" target="_blank" rel="noopener">Otevřít v Google mapách →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  V Zátiší · Osvobození 57, 788 15 Velké Losiny · 731 614 935
+</footer>
+
+<script>
+function escHTML(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderMenu(containerId, items){
+  const el = document.getElementById(containerId);
+  if (!el || !items || !items.length) return;
+  const groups = {};
+  items.forEach(it => {
+    const g = it.skupina || 'Ostatní';
+    if (!groups[g]) groups[g] = [];
+    groups[g].push(it);
+  });
+  let html = '';
+  Object.keys(groups).forEach(g => {
+    html += `<div class="menu-group"><h3>${escHTML(g)}</h3>`;
+    groups[g].forEach(it => {
+      const thumb = it.obrazek ? `<img class="thumb" src="${escHTML(it.obrazek)}" alt="" loading="lazy">` : '';
+      html += `<div class="menu-item">${thumb}<span class="name">${escHTML(it.nazev)}${it.popis ? `<span class="desc">${escHTML(it.popis)}</span>` : ''}</span><span class="leader"></span><span class="price">${escHTML(it.cena)}</span></div>`;
+    });
+    html += `</div>`;
+  });
+  el.innerHTML = html;
+}
+
+function renderGallery(items){
+  const el = document.getElementById('galTrack');
+  if (!el || !items || !items.length) return;
+  let html = '';
+  items.forEach(it => {
+    html += `<div class="slide"><img src="${escHTML(it.obrazek)}" alt="${escHTML(it.nazev)}" loading="lazy"><div class="slide-caption">${it.popis ? `<span class="tag">${escHTML(it.popis)}</span>` : ''}<h3>${escHTML(it.nazev)}</h3></div></div>`;
+  });
+  el.innerHTML = html;
+}
+
+async function loadJSON(path){
+  try {
+    const res = await fetch(path, { cache: 'no-store' });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch (e) { return null; }
+}
+
+async function loadAll(){
+  const [jidlo, napoje, galerie, titulka] = await Promise.all([
+    loadJSON('/content/jidlo.json'),
+    loadJSON('/content/napoje.json'),
+    loadJSON('/content/galerie.json'),
+    loadJSON('/content/titulka.json')
+  ]);
+  if (jidlo && jidlo.items) renderMenu('menu-jidlo', jidlo.items);
+  if (napoje && napoje.items) renderMenu('menu-napoje', napoje.items);
+  if (galerie && galerie.items) renderGallery(galerie.items);
+  if (titulka && titulka.obrazek) {
+    const heroImg = document.getElementById('heroImg');
+    if (heroImg) { heroImg.src = titulka.obrazek; heroImg.alt = titulka.nazev || heroImg.alt; }
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadAll);
+</script>
+
+</body>
+</html>
