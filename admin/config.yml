@@ -10,49 +10,92 @@ locale: "cs"
 collections:
   - name: "jidlo"
     label: "Jídlo"
-    label_singular: "Položka"
     files:
       - name: "jidlo"
         label: "Jídelní lístek"
         file: "content/jidlo.json"
         fields:
-          - { label: "Položky", name: "items", widget: "list", summary: "{{skupina}} — {{nazev}}", fields:
-              - { label: "Skupina", name: "skupina", widget: "select", options: ["Předkrmy a polévky", "Hlavní jídla", "Přílohy", "Sladké tečky"] }
-              - { label: "Název", name: "nazev", widget: "string" }
-              - { label: "Popis", name: "popis", widget: "string", required: false }
-              - { label: "Cena", name: "cena", widget: "string" }
-              - { label: "Fotka", name: "obrazek", widget: "image", required: false, choose_url: false }
-            }
+          - label: "Položky"
+            name: "items"
+            widget: "list"
+            summary: "{{skupina}} — {{nazev}}"
+            fields:
+              - label: "Skupina"
+                name: "skupina"
+                widget: "select"
+                options: ["Předkrmy a polévky", "Hlavní jídla", "Přílohy", "Sladké tečky"]
+              - label: "Název"
+                name: "nazev"
+                widget: "string"
+              - label: "Popis"
+                name: "popis"
+                widget: "string"
+                required: false
+              - label: "Cena"
+                name: "cena"
+                widget: "string"
+              - label: "Fotka"
+                name: "obrazek"
+                widget: "image"
+                required: false
+                choose_url: false
 
   - name: "napoje"
     label: "Nápoje"
-    label_singular: "Položka"
     files:
       - name: "napoje"
         label: "Nápojový lístek"
         file: "content/napoje.json"
         fields:
-          - { label: "Položky", name: "items", widget: "list", summary: "{{skupina}} — {{nazev}}", fields:
-              - { label: "Skupina", name: "skupina", widget: "select", options: ["Točené pivo", "Nealko", "Víno", "Destiláty"] }
-              - { label: "Název", name: "nazev", widget: "string" }
-              - { label: "Popis", name: "popis", widget: "string", required: false }
-              - { label: "Cena", name: "cena", widget: "string" }
-              - { label: "Fotka", name: "obrazek", widget: "image", required: false, choose_url: false }
-            }
+          - label: "Položky"
+            name: "items"
+            widget: "list"
+            summary: "{{skupina}} — {{nazev}}"
+            fields:
+              - label: "Skupina"
+                name: "skupina"
+                widget: "select"
+                options: ["Točené pivo", "Nealko", "Víno", "Destiláty"]
+              - label: "Název"
+                name: "nazev"
+                widget: "string"
+              - label: "Popis"
+                name: "popis"
+                widget: "string"
+                required: false
+              - label: "Cena"
+                name: "cena"
+                widget: "string"
+              - label: "Fotka"
+                name: "obrazek"
+                widget: "image"
+                required: false
+                choose_url: false
 
   - name: "galerie"
     label: "Galerie"
-    label_singular: "Fotka"
     files:
       - name: "galerie"
         label: "Fotky v galerii"
         file: "content/galerie.json"
         fields:
-          - { label: "Fotky", name: "items", widget: "list", summary: "{{nazev}}", fields:
-              - { label: "Název", name: "nazev", widget: "string" }
-              - { label: "Štítek", name: "popis", widget: "string", required: false, hint: "Krátký text nad názvem, např. Nejoblíbenější" }
-              - { label: "Fotka", name: "obrazek", widget: "image", choose_url: false }
-            }
+          - label: "Fotky"
+            name: "items"
+            widget: "list"
+            summary: "{{nazev}}"
+            fields:
+              - label: "Název"
+                name: "nazev"
+                widget: "string"
+              - label: "Štítek"
+                name: "popis"
+                widget: "string"
+                required: false
+                hint: "Krátký text nad názvem, např. Nejoblíbenější"
+              - label: "Fotka"
+                name: "obrazek"
+                widget: "image"
+                choose_url: false
 
   - name: "titulka"
     label: "Titulka"
@@ -61,5 +104,10 @@ collections:
         label: "Úvodní fotka"
         file: "content/titulka.json"
         fields:
-          - { label: "Popisek fotky", name: "nazev", widget: "string" }
-          - { label: "Fotka", name: "obrazek", widget: "image", choose_url: false }
+          - label: "Popisek fotky"
+            name: "nazev"
+            widget: "string"
+          - label: "Fotka"
+            name: "obrazek"
+            widget: "image"
+            choose_url: false
